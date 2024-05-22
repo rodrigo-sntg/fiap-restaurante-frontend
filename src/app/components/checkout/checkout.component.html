@@ -1,0 +1,23 @@
+<mat-card>
+  <h2>Realizar Checkout</h2>
+  <form (ngSubmit)="realizarCheckout()">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Código do Pedido</mat-label>
+      <input matInput id="codigoPedido" [(ngModel)]="checkout.codigoPedido" name="codigoPedido" required readonly>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Forma de Pagamento</mat-label>
+      <mat-select id="formaPagamento" [(ngModel)]="checkout.formaPagamento" name="formaPagamento" required>
+        <mat-option value="MERCADO_PAGO_QR_CODE">Mercado Pago QR Code</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!checkout.formaPagamento">Realizar Checkout</button>
+    </div>
+  </form>
+  <div *ngIf="pixResponse" class="response-container">
+    <h3>Cobrança Gerada</h3>
+    <p>Status: {{ pixResponse.status }}</p>
+    <p><a [href]="pixResponse.pixUrl" target="_blank">Clique aqui para pagar</a></p>
+  </div>
+</mat-card>

@@ -1,0 +1,21 @@
+<mat-card>
+  <h2>Criar Cliente</h2>
+  <form (ngSubmit)="salvarCliente()">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="cliente.nome" name="nome" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>CPF</mat-label>
+      <input matInput [(ngModel)]="cliente.cpf" name="cpf" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="cliente.email" name="email">
+    </mat-form-field>
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit">Criar</button>
+      <button mat-raised-button color="warn" type="button" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+</mat-card>

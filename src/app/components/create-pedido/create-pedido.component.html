@@ -1,0 +1,34 @@
+<mat-card>
+  <h2>Criar Pedido</h2>
+  <form (ngSubmit)="salvarPedido()">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>CPF</mat-label>
+      <mat-select [(ngModel)]="pedido.cpf" name="cpf" required>
+        <mat-option *ngFor="let cliente of clientes" [value]="cliente.cpf">
+          {{ cliente.nome }} - {{ cliente.cpf }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div formArrayName="itens">
+      <div *ngFor="let item of pedido.itens; let i = index" class="item-container">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Código do Produto</mat-label>
+          <mat-select [(ngModel)]="item.codigoProduto" name="codigoProduto-{{i}}" required>
+            <mat-option *ngFor="let produto of produtos" [value]="produto.codigo">
+              {{ produto.nome }} - {{ produto.codigo }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Customização</mat-label>
+          <input matInput [(ngModel)]="item.customizacao" name="customizacao-{{i}}">
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button color="primary" type="button" (click)="adicionarItem()">Adicionar Item</button>
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit">Criar Pedido</button>
+      <button mat-raised-button color="warn" type="button" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+</mat-card>

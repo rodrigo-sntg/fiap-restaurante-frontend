@@ -1,0 +1,42 @@
+<mat-card>
+  <h2>Todos os Pedidos</h2>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let pedido of pedidos">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Pedido {{ pedido.codigoPedido }} - {{ pedido.status }}
+        </mat-panel-title>
+        <mat-panel-description>
+          Total: R$ {{ pedido.total }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="pedido-detalhes">
+        <h3>Cliente</h3>
+        <p><strong>Nome:</strong> {{ pedido.cliente.nome }}</p>
+        <p><strong>CPF:</strong> {{ pedido.cliente.cpf }}</p>
+        <p><strong>Email:</strong> {{ pedido.cliente.email || 'N/A' }}</p>
+        
+        <h3>Itens</h3>
+        <mat-list>
+          <mat-list-item *ngFor="let item of pedido.itens" class="item-detalhes">
+            <div class="item">
+              <div matLine><strong>Nome:</strong> {{ item.nomeProduto }}</div>
+              <div matLine><strong>Customização:</strong> {{ item.customizacao }}</div>
+              <div matLine><strong>Preço:</strong> R$ {{ item.preco }}</div>
+              <div matLine><strong>Descrição:</strong> {{ item.descricao }}</div>
+            </div>
+          </mat-list-item>
+        </mat-list>
+        
+        <div class="pedido-info">
+          <p><strong>Data de Alteração:</strong> {{ pedido.dataAlteracao | date: 'dd/MM/yyyy HH:mm' }}</p>
+          <p><strong>Previsão de Preparo:</strong> {{ pedido.previsaoPreparo ? pedido.previsaoPreparo : 'N/A' }}</p>
+        </div>
+
+        <div *ngIf="pedido.status === 'Aguardando pagamento'" class="checkout-button">
+          <button mat-raised-button color="primary" (click)="irParaCheckout(pedido.codigoPedido)">Ir para Checkout</button>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-card>

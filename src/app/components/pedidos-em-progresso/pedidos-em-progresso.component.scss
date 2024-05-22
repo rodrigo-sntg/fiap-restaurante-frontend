@@ -1,0 +1,40 @@
+mat-card {
+    margin: 16px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pedido-detalhes {
+    margin-top: 16px;
+  }
+  
+  .item {
+    margin-bottom: 8px;
+    display: contents;
+    padding: 20px;
+  }
+  
+  .pedido-info {
+    margin-top: 16px;
+  }
+  
+  .mat-expansion-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .mat-panel-description {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .mat-expansion-panel-header button {
+    margin-left: auto;
+    color: #fff;
+    background-color: #ff4081; /* Cor de destaque */
+  }
+  

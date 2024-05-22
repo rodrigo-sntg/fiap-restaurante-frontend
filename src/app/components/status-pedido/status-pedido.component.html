@@ -1,0 +1,27 @@
+<mat-card>
+  <h2>Consultar Status do Pedido</h2>
+  <form (ngSubmit)="buscarPedido()">
+    <mat-form-field appearance="fill">
+      <mat-label>Código do Pedido</mat-label>
+      <input matInput id="codigoPedido" [(ngModel)]="codigoPedido" name="codigoPedido" required>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Buscar Pedido</button>
+  </form>
+  <div *ngIf="pedido" class="pedido-detalhes">
+    <h3>Status do Pedido</h3>
+    <p><strong>Código:</strong> {{ pedido.codigoPedido }}</p>
+    <p><strong>CPF:</strong> {{ pedido.cliente.cpf }}</p>
+    <p><strong>Status:</strong> {{ pedido.status }}</p>
+    <p><strong>Total:</strong> R$ {{ pedido.total }}</p>
+    <mat-list>
+      <mat-list-item *ngFor="let item of pedido.itens" class="item-detalhes">
+        <div matLine><strong>Produto:</strong> {{ item.nomeProduto }}</div>
+        <div matLine><strong>Customização:</strong> {{ item.customizacao }}</div>
+        <div matLine><strong>Descrição:</strong> {{ item.descricao }}</div>
+        <div matLine><strong>Preço:</strong> R$ {{ item.preco }}</div>
+      </mat-list-item>
+    </mat-list>
+    <p><strong>Data de Alteração:</strong> {{ pedido.dataAlteracao }}</p>
+    <p *ngIf="pedido.previsaoPreparo"><strong>Previsão de Preparo:</strong> {{ pedido.previsaoPreparo }}</p>
+  </div>
+</mat-card>

@@ -1,0 +1,41 @@
+mat-card {
+    margin: 16px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  mat-list-item {
+    margin-bottom: 16px;
+    display: contents;
+  }
+  
+  .cliente-detalhes mat-card {
+    padding: 16px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .cliente-detalhes mat-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  mat-card-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #3f51b5;
+  }
+  
+  mat-card-content p {
+    margin: 8px 0;
+    font-size: 1.1em;
+    color: #555;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #3f51b5;
+  }
+  

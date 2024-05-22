@@ -1,0 +1,20 @@
+<mat-card>
+  <h2>Todos os Produtos</h2>
+  <mat-list>
+    <mat-list-item *ngFor="let produto of produtos" class="produto-detalhes">
+      <mat-card class="produto">
+        <mat-card-title>{{ produto.nome }}</mat-card-title>
+        <mat-card-content>
+          <p><strong>Categoria:</strong> {{ produto.categoria }}</p>
+          <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
+          <p><strong>Descrição:</strong> {{ produto.descricao }}</p>
+          <p><strong>Ativo:</strong> {{ produto.ativo ? 'Sim' : 'Não' }}</p>
+          <p><strong>Tempo de Preparo:</strong> {{ produto.tempoPreparoEmMinutos }} minutos</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="editarProduto(produto.codigo)">Editar</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

@@ -1,0 +1,15 @@
+<mat-card>
+    <h2>Todos os Clientes</h2>
+    <mat-list>
+      <mat-list-item *ngFor="let cliente of clientes" class="cliente-detalhes">
+        <mat-card class="cliente">
+          <mat-card-title>{{ cliente.nome }}</mat-card-title>
+          <mat-card-content>
+            <p><strong>CPF:</strong> {{ cliente.cpf }}</p>
+            <p><strong>Email:</strong> {{ cliente.email || 'N/A' }}</p>
+          </mat-card-content>
+        </mat-card>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+  

@@ -1,0 +1,35 @@
+<mat-card>
+  <h2>{{ isEditMode ? 'Editar Produto' : 'Criar Produto' }}</h2>
+  <form (ngSubmit)="salvarProduto()">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="produto.nome" name="nome" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Categoria</mat-label>
+      <mat-select [(ngModel)]="produto.categoria" name="categoria" required>
+        <mat-option value="BEBIDA">Bebida</mat-option>
+        <mat-option value="LANCHE">Lanche</mat-option>
+        <mat-option value="ACOMPANHAMENTO">Acompanhamento</mat-option>
+        <mat-option value="SOBREMESA">Sobremesa</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Preço</mat-label>
+      <input matInput type="number" [(ngModel)]="produto.preco" name="preco" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput [(ngModel)]="produto.descricao" name="descricao" required></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Tempo de Preparo (minutos)</mat-label>
+      <input matInput type="number" [(ngModel)]="produto.tempoPreparoEmMinutos" name="tempoPreparoEmMinutos" required>
+    </mat-form-field>
+    <mat-checkbox [(ngModel)]="produto.ativo" name="ativo">Ativo</mat-checkbox>
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit">{{ isEditMode ? 'Atualizar' : 'Criar' }}</button>
+      <button mat-raised-button color="warn" type="button" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+</mat-card>
